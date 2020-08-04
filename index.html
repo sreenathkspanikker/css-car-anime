@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body{
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .car-anime{
+      width: 100%;
+      height: 330px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+    .car {
+      width: 600px;
+      height: 225px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .car img{
+      width: 100%;
+    }
+
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    display: block;
+    background-color: #474747;
+    border-radius: 100%;
+    position: absolute;
+    top: 128px;
+    left: 54px;
+    bottom: 0;
+    right: 0;
+    width: 98px;
+    height: 98px;
+    z-index: 2  ;
+    -webkit-animation: rotating 1s linear infinite;
+    -moz-animation: rotating 1s linear infinite;
+    -ms-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+  }
+  .rotating:before{
+    content: " ";
+    width: 70px;
+    height: 70px;
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 100%;
+  }
+  .rotating .line:after{
+    content: " ";
+    width: 70px;
+    height: 2px;
+    background: #ffc20d75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+  }
+
+  .rotating .line:before{
+    content: " ";
+    width: 2px;
+    height: 70px;
+    background: #ffc20d75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+  }
+
+  .wheel-right{
+   left: auto;
+   right: 76px; 
+  }
+
+  .road{
+    width: 100%;
+    height: 15px;
+    background-color: #474747;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* BACKGROUND */
+  @keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+  }
+  @-moz-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+  }
+  @-webkit-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+  }
+  @-ms-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+  }
+  @-o-keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -300px 0; }
+  }
+
+  .bg-anime { 
+    width: 100%; 
+    height: 504px; 
+    background-image: url("./bg-cloud.jpg");
+    background-position: 0px 0px;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    z-index: 1;
+    
+    animation: animatedBackground 6s linear infinite;
+    -moz-animation: animatedBackground 6s linear infinite;
+    -webkit-animation: animatedBackground 6s linear infinite;
+    -ms-animation: animatedBackground 6s linear infinite;
+    -o-animation: animatedBackground 6s linear infinite;
+  }
+
+
+  </style>
+</head>
+<body>
+  
+<main class="car-anime">
+
+  <!-- BACKGROUND -->
+  <div class="bg-anime"></div>
+
+  <!-- CAR -->
+  <div class="car">
+    <img src="./car.png" alt="car">
+    <div class="wheel-left rotating">
+      <span class="line"></span>
+    </div>
+    <div class="wheel-right rotating">
+      <span class="line"></span>
+    </div>
+  </div>
+
+  <!-- ROAD -->
+  <div class="road"></div>
+</main>
+
+
+</body>
+</html>
